@@ -97,7 +97,16 @@ app.get("/api/news", async (req, res) => {
       scrapeOnlineKhabar()
     ]);
 
-    const combined = [...setopati, ...online];
+    let combined = [...setopati, ...online];
+
+    // Remove duplicates by title
+    const seen = new Set();
+    combined = combined.filter(article => {
+      const cleanTitle = article.title.toLowerCase();
+      if (seen.has(cleanTitle)) return false;
+      seen.add(cleanTitle);
+      return true;
+    });
 
     res.json({
       success: true,
