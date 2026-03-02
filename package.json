@@ -1,5 +1,8 @@
 {
   "name": "nepali-news-backend",
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

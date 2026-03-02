@@ -1,6 +1,12 @@
-export default function handler(req, res) {
-  res.status(200).json({
+import express from "express";
+
+const app = express();
+
+app.get("/api/news", (req, res) => {
+  res.json({
     success: true,
-    message: "Backend is working 🚀"
+    message: "Express backend working 🚀"
   });
-}
+});
+
+export default app;
